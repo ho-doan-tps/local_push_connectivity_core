@@ -101,7 +101,7 @@ public class ISocket {
     
     public init() {}
     
-    static func fetchSettings() -> Settings {
+    public static func fetchSettings() -> Settings {
         guard let encodedSettings = userDefaults.data(forKey: settingsKey) else {
             return Settings()
         }
