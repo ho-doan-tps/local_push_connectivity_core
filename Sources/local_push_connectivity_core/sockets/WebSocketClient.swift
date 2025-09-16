@@ -51,8 +51,12 @@ public class WebSocketClient: ISocket {
         pingTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {
             [weak self] _ in
             self?.connection?.sendPing { error in
-                self?.disconnect()
-                self?.retry(after: .seconds(5), error: nil)
+                requestNotificationDebug(payload: error?.localizedDescription ?? "ping ok")
+                requestNotificationDebug(payload: "self is \(self == nil)")
+                if let error = error {
+                    self?.disconnect()
+                    self?.retry(after: .seconds(5), error: nil)
+                }
             }
         }
     }
@@ -71,9 +75,13 @@ public class WebSocketClient: ISocket {
     public override func retry(after delay: DispatchTimeInterval, error: NWError?) {
         retryWorkItem?.cancel()
         let workItem = DispatchWorkItem { [weak self] in
-            guard let self = self, !(self.retryWorkItem?.isCancelled ?? true) else { return
+            guard let self = self, !(self.retryWorkItem?.isCancelled ?? true)
+            else {
+                requestNotificationDebug(payload: "retrying connect.... \(self.retryWorkItem?.isCancelled ?? true)")
+                return
             }
             print("retrying to connect with remote server...")
+            requestNotificationDebug(payload: "retrying connect....")
             self.connect()
         }
         retryWorkItem = workItem
