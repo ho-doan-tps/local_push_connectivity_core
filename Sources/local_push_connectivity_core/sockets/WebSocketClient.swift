@@ -27,6 +27,8 @@ public class WebSocketClient: ISocket {
         connection?.resume()
         self.state = .connected
         
+        self.heartbeat()
+        
         let register = RegisterModel(messageType: "register", sendConnectorID: "4", sendDeviceId: settings.deviceId ?? "", systemType: 1)
         guard let encoded = try? JSONEncoder().encode(register) else {
             self.disconnect()
@@ -44,6 +46,17 @@ public class WebSocketClient: ISocket {
         }
     }
     
+    public override func heartbeat() {
+        stopHeartbeat()
+        pingTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {
+            [weak self] _ in
+            self?.connection?.sendPing { error in
+                self?.disconnect()
+                self?.retry(after: .seconds(5), error: nil)
+            }
+        }
+    }
+    
     public override func disconnect() {
         dispatchQueue.async { [weak self] in
             guard let self = self, [.connecting, .connected].contains(self.state) else { return }
@@ -58,7 +71,8 @@ public class WebSocketClient: ISocket {
     public override func retry(after delay: DispatchTimeInterval, error: NWError?) {
         retryWorkItem?.cancel()
         let workItem = DispatchWorkItem { [weak self] in
-            guard let self = self, !(self.retryWorkItem?.isCancelled ?? true) else { return }
+            guard let self = self, !(self.retryWorkItem?.isCancelled ?? true) else { return
+            }
             print("retrying to connect with remote server...")
             self.connect()
         }

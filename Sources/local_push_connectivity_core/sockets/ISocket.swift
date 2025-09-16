@@ -94,6 +94,8 @@ public class ISocket {
     let retryInterval = DispatchTimeInterval.seconds(5)
     var retryWorkItem: DispatchWorkItem?
     
+    var pingTimer: Timer? = nil
+    
     private static let settingsKey = "settings"
     private static let appStateKey = "isExecutingInBackground"
     private static let groupId = Bundle.main.object(forInfoDictionaryKey: "GroupNEAppPushLocal") as? String
@@ -113,6 +115,15 @@ public class ISocket {
             print("Error decoding settings - \(error)")
             return Settings()
         }
+    }
+    
+    public func heartbeat(){
+        fatalError("This method must be overridden in a subclass")
+    }
+    
+    func stopHeartbeat() {
+        pingTimer?.invalidate()
+        pingTimer = nil
     }
     
     public func connect(){
