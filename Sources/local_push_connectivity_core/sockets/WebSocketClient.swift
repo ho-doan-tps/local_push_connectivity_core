@@ -13,7 +13,7 @@ public class WebSocketClient: ISocket {
         let host = settings.host ?? ""
         let port = settings.port ?? -1
         let path = settings.wsPath ?? ""
-        guard let url = URL(string: "\(origin)://\(host):\(port)/\(path)") else { return
+        guard let url = URL(string: "\(origin)://\(host):\(port)\(path)") else { return
         }
         
         self.state = .connecting
