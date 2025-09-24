@@ -49,23 +49,34 @@ struct Message: Decodable {
     }
 }
 
+struct Sender: Codable {
+    var connectorID: String
+    var connectorTag: String
+    var deviceID: String
+
+    init(connectorID: String, connectorTag: String, deviceID: String) {
+        self.connectorID = connectorID
+        self.connectorTag = connectorTag
+        self.deviceID = deviceID
+    }
+}
+
+struct DataRegister: Codable {
+    var apnsToken: String?
+    var applicationID: String?
+    var apnsServerType: Int?
+}
+
 struct RegisterModel: Codable {
     var messageType: String
-    var sendConnectorID: String
-    var sendDeviceId: String
     var systemType: Int
+    var sender: Sender
+    var data: DataRegister
     
-    enum CodingKeys: String, CodingKey {
-        case messageType = "MessageType"
-        case sendConnectorID = "SendConnectorID"
-        case sendDeviceId = "SendDeviceId"
-        case systemType = "SystemType"
-    }
-    
-    init(messageType: String, sendConnectorID: String, sendDeviceId: String, systemType: Int) {
+    init(messageType: String, sender: Sender, data: DataRegister, systemType: Int) {
         self.messageType = messageType
-        self.sendConnectorID = sendConnectorID
-        self.sendDeviceId = sendDeviceId
+        self.sender = sender
+        self.data = data
         self.systemType = systemType
     }
 }
@@ -91,10 +102,11 @@ public class ISocket {
     
     public var state: State = .disconnected
     let dispatchQueue = DispatchQueue(label: "NetworkSession.dispatchQueue",qos: .background)
+    let dispatchPingQueue = DispatchQueue(label: "NetworkSession.dispatchPingQueue")
     let retryInterval = DispatchTimeInterval.seconds(5)
     var retryWorkItem: DispatchWorkItem?
     
-    var pingTimer: Timer? = nil
+    var pingTimer: DispatchSourceTimer? = nil
     
     private static let settingsKey = "settings"
     private static let appStateKey = "isExecutingInBackground"
@@ -122,7 +134,7 @@ public class ISocket {
     }
     
     func stopHeartbeat() {
-        pingTimer?.invalidate()
+        pingTimer?.cancel()
         pingTimer = nil
     }
     
@@ -139,6 +151,10 @@ public class ISocket {
     }
     
     public func cancelRetry() {
+        fatalError("This method must be overridden in a subclass")
+    }
+    
+    public func reconnect() {
         fatalError("This method must be overridden in a subclass")
     }
     
@@ -184,7 +200,7 @@ public class ISocket {
     }
     
     /// for debug
-    func requestNotificationDebug(payload: String) {
+    public func requestNotificationDebug(payload: String) {
         let content = UNMutableNotificationContent()
         content.title = payload
         content.body = "debug"

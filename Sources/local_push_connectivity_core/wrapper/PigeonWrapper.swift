@@ -3,6 +3,7 @@ public struct Settings: Codable, Equatable {
     var host: String? = nil
     var deviceId: String? = nil
     var connectorID: String? = nil
+    var connectorTag: String? = nil
     var systemType: Int? = nil
     var port: Int? = nil
     var wss: Bool? = nil
@@ -13,11 +14,12 @@ public struct Settings: Codable, Equatable {
     public init() {}
 
     public init(ssid: [String]?, host: String?, deviceId: String?, connectorID: String?, 
-      systemType: Int?, port: Int?, wss: Bool?, wsPath: String?, useTcp: Bool?, publicKey: String?) {
+      systemType: Int?, port: Int?, wss: Bool?, wsPath: String?, useTcp: Bool?, publicKey: String?, connectorTag: String?) {
         self.ssid = ssid
         self.host = host
         self.deviceId = deviceId
         self.connectorID = connectorID
+        self.connectorTag = connectorTag
         self.systemType = systemType
         self.port = port
         self.wss = wss
