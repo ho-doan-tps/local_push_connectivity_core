@@ -1,0 +1,255 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.local_push_connectivity_core-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/sources",
+      "importPath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/LocalPushConnectivityPluginCore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/ISocket.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/WebSocketClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/wrapper/PigeonWrapper.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "local_push_connectivity_core",
+      "moduleOutputPath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.swiftmodule",
+      "objects" : [
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/LocalPushConnectivityPluginCore.swift.o",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/ISocket.swift.o",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/WebSocketClient.swift.o",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/PigeonWrapper.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.13",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/local_push_connectivity_core-Swift.h",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "local_push_connectivity_core"
+      ],
+      "outputFileMapPath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/LocalPushConnectivityPluginCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/ISocket.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/WebSocketClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/PigeonWrapper.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/LocalPushConnectivityPluginCore.swift",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/ISocket.swift",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/WebSocketClient.swift",
+        "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/wrapper/PigeonWrapper.swift"
+      ],
+      "tempsPath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "local_push_connectivity_core" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "local_push_connectivity_core",
+      "-package-name",
+      "local_push_connectivity_core",
+      "-incremental",
+      "-c",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/LocalPushConnectivityPluginCore.swift",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/ISocket.swift",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/WebSocketClient.swift",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/wrapper/PigeonWrapper.swift",
+      "-I",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug",
+      "-target",
+      "arm64-apple-macosx10.13",
+      "-swift-version",
+      "5",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/local_push_connectivity_core-Swift.h",
+      "-color-diagnostics",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "local_push_connectivity_core",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "local_push_connectivity_core" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "writeCommands" : {
+    "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/LocalPushConnectivityPluginCore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/ISocket.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/sockets/WebSocketClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/Sources/local_push_connectivity_core/wrapper/PigeonWrapper.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/sources"
+    },
+    "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

@@ -34,11 +34,6 @@ public class WebSocketClient: ISocket {
             self.requestNotification(payload: "reconnect")
         }
         
-        dispatchQueue.async {
-            let str = String(data: data, encoding: .utf8)
-            self.requestNotification(payload: str ?? "")
-        }
-        
         let register = RegisterModel(messageType: "register", 
             sender: Sender(connectorID: settings.connectorID ?? "", connectorTag: settings.connectorTag ?? "", deviceID: settings.deviceId ?? ""), 
             data: DataRegister(apnsToken: nil, applicationID: nil, apnsServerType: nil), systemType: settings.systemType ?? -1)

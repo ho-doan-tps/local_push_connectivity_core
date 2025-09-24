@@ -189,12 +189,8 @@ public class ISocket {
     func requestNotification(payload: String) {
         if payload.isEmpty { return }
         guard let data = payload.data(using: .utf8) else { return }
-        var pong: PongModel? = nil
-        do {
-            pong = try? JSONDecoder().decode(PongModel.self, from: data)
-        } catch {
-          print("json is not pong")
-        }
+
+        let pong: PongModel? = try? JSONDecoder().decode(PongModel.self, from: data)
         if pong?.pong != nil {
             return
         }
