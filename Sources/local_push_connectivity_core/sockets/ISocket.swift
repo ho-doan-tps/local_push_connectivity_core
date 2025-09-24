@@ -65,6 +65,12 @@ struct DataRegister: Codable {
     var apnsToken: String?
     var applicationID: String?
     var apnsServerType: Int?
+    
+    init(apnsToken: String? = nil, applicationID: String? = nil, apnsServerType: Int? = nil) {
+        self.apnsToken = apnsToken
+        self.applicationID = applicationID
+        self.apnsServerType = apnsServerType
+    }
 }
 
 struct RegisterModel: Codable {
@@ -80,6 +86,24 @@ struct RegisterModel: Codable {
         self.systemType = systemType
     }
 }
+
+struct PingModel: Codable {
+    var messageType: String?
+    
+    init(messageType: String? = nil) {
+        self.messageType = messageType
+    }
+}
+
+struct PongModel: Codable {
+    var pong: String?
+    
+    init(pong: String? = nil) {
+        self.pong = pong
+    }
+}
+
+
 
 @available(macOS 10.15, *)
 public class ISocket {
@@ -165,6 +189,34 @@ public class ISocket {
     func requestNotification(payload: String) {
         if payload.isEmpty { return }
         guard let data = payload.data(using: .utf8) else { return }
+        var pong: PongModel? = nil
+        do {
+            pong = try? JSONDecoder().decode(PongModel.self, from: data)
+        } catch {
+          print("json is not pong")
+        }
+        if pong?.pong != nil {
+            return
+        }
+        
+        if payload == "reconnect" {
+            let content = UNMutableNotificationContent()
+            content.title = ""
+            content.body = ""
+            content.sound = .default
+            content.userInfo = [
+                "payload": "reconnect"
+            ]
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("submitting error: \(error)")
+                    return
+                }
+            }
+        }
+        
         guard let message = try? JSONDecoder().decode(Message.self, from: data) else {
             return
         }
