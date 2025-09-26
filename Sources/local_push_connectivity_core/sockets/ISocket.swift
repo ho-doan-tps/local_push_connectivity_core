@@ -31,6 +31,7 @@ struct AnyDecodable: Decodable {
 struct Notification: Decodable {
     var Title: String
     var Body: String
+    var Subtitle: String?
 }
 
 struct Message: Decodable {
@@ -226,6 +227,9 @@ public class ISocket {
         let content = UNMutableNotificationContent()
         content.title = message.notification.Title
         content.body = message.notification.Body
+        if let subtitle = message.notification.Subtitle {
+            content.subtitle = subtitle
+        }
         if !message.notification.Title.isEmpty {
             content.sound = .default
         } else {
