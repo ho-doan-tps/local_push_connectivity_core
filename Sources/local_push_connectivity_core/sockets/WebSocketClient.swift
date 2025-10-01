@@ -102,7 +102,7 @@ public class WebSocketClient: ISocket {
             guard let self = self, !(self.retryWorkItem?.isCancelled ?? true)
             else { return }
             print("retrying to connect with remote server...")
-            requestNotificationDebug(payload: "retrying connect....")
+            // requestNotificationDebug(payload: "retrying connect....")
             self.connect()
         }
         retryWorkItem = workItem
