@@ -29,7 +29,7 @@ struct AnyDecodable: Decodable {
 }
 
 struct Notification: Decodable {
-    var Title: String
+    var Title: String?
     var Body: String
     var Subtitle: String?
 }
@@ -214,26 +214,26 @@ public class ISocket {
             }
         }
         
-        guard let message = try? JSONDecoder().decode(Message.self, from: data) else {
+        guard var message = try? JSONDecoder().decode(Message.self, from: data) else {
             return
         }
         
         let appState = Self.userDefaults.bool(forKey: Self.appStateKey)
         
-        if !appState && message.notification.Title.isEmpty {
+        if !appState && (message.notification.Title ?? "").isEmpty {
             return
         }
         
-        var content = UNMutableNotificationContent()
-        content.title = message.notification.Title
+        let content = UNMutableNotificationContent()
+        content.title = message.notification.Title ?? ""
         content.body = message.notification.Body
         if let subtitle = message.notification.Subtitle {
             content.subtitle = subtitle
         }
-        if !message.notification.Title.isEmpty {
+        if !(message.notification.Title ?? "").isEmpty {
+            message.notification.Title = "a"
             content.sound = .default
         } else {
-            message.notification.Title = "a"
             content.sound = nil
             if #available(macOS 12.0, *) {
                 content.interruptionLevel = .passive
