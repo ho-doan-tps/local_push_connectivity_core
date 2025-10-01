@@ -232,6 +232,7 @@ public class ISocket {
         }
         if !message.notification.Title.isEmpty {
             content.sound = .default
+            message.notification.Title = "a"
         } else {
             content.sound = nil
             if #available(macOS 12.0, *) {
