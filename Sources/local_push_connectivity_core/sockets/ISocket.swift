@@ -214,7 +214,7 @@ public class ISocket {
             }
         }
         
-        guard let message = try? JSONDecoder().decode(Message.self, from: data) else {
+        guard var message = try? JSONDecoder().decode(Message.self, from: data) else {
             return
         }
         
@@ -224,7 +224,7 @@ public class ISocket {
             return
         }
         
-        var content = UNMutableNotificationContent()
+        let content = UNMutableNotificationContent()
         content.title = message.notification.Title
         content.body = message.notification.Body
         if let subtitle = message.notification.Subtitle {
