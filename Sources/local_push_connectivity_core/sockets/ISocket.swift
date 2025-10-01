@@ -224,7 +224,7 @@ public class ISocket {
             return
         }
         
-        let content = UNMutableNotificationContent()
+        var content = UNMutableNotificationContent()
         content.title = message.notification.Title
         content.body = message.notification.Body
         if let subtitle = message.notification.Subtitle {
