@@ -33,10 +33,15 @@ public class WebSocketClient: ISocket {
         dispatchQueue.async {
             self.requestNotification(payload: "reconnect")
         }
+
+        var serverApnsType = 0
+        if settings.serverApnsType == false {
+            serverApnsType = 1
+        }
         
         let register = RegisterModel(messageType: "register", 
             sender: Sender(connectorID: settings.connectorID ?? "", connectorTag: settings.connectorTag ?? "", deviceID: settings.deviceId ?? ""), 
-            data: DataRegister(apnsToken: settings.apnsToken, applicationID: nil, apnsServerType: nil), systemType: settings.systemType ?? -1)
+            data: DataRegister(apnsToken: settings.apnsToken, applicationID: nil, apnsServerType: serverApnsType), systemType: settings.systemType ?? -1)
         guard let encoded = try? JSONEncoder().encode(register) else {
             self.disconnect()
             return

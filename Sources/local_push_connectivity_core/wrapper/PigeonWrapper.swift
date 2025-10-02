@@ -1,17 +1,17 @@
 public struct Settings: Codable, Equatable {
-    var ssid: [String]? = nil
-    var host: String? = nil
-    var deviceId: String? = nil
-    var connectorID: String? = nil
-    var connectorTag: String? = nil
-    var systemType: Int? = nil
-    var port: Int? = nil
-    var wss: Bool? = nil
-    var wsPath: String? = nil
-    var useTcp: Bool? = nil
-    var publicKey: String? = nil
-    var apnsToken: String? = nil
-    var serverApnsType: Bool? = nil
+    public var ssid: [String]? = nil
+    public var host: String? = nil
+    public var deviceId: String? = nil
+    public var connectorID: String? = nil
+    public var connectorTag: String? = nil
+    public var systemType: Int? = nil
+    public var port: Int? = nil
+    public var wss: Bool? = nil
+    public var wsPath: String? = nil
+    public var useTcp: Bool? = nil
+    public var publicKey: String? = nil
+    public var apnsToken: String? = nil
+    public var serverApnsType: Bool? = nil
     
     public init() {}
 
