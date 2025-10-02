@@ -29,7 +29,7 @@ struct AnyDecodable: Decodable {
 }
 
 struct Notification: Decodable {
-    var Title: String?
+    var Title: String
     var Body: String
     var Subtitle: String?
 }
@@ -218,20 +218,19 @@ public class ISocket {
             return
         }
         
-        let appState = Self.userDefaults.bool(forKey: Self.appStateKey)
-        
-        if !appState && (message.notification.Title ?? "").isEmpty {
-            return
-        }
+//        let appState = Self.userDefaults.bool(forKey: Self.appStateKey)
+//        
+//        if !appState && message.notification.Title.isEmpty {
+//            return
+//        }
         
         let content = UNMutableNotificationContent()
-        content.title = message.notification.Title ?? ""
+        content.title = message.notification.Title
         content.body = message.notification.Body
         if let subtitle = message.notification.Subtitle {
             content.subtitle = subtitle
         }
-        if !(message.notification.Title ?? "").isEmpty {
-            message.notification.Title = "a"
+        if !message.notification.Title.isEmpty {
             content.sound = .default
         } else {
             content.sound = nil
