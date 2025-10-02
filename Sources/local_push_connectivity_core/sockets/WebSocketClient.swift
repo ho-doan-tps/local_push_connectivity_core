@@ -36,7 +36,7 @@ public class WebSocketClient: ISocket {
         
         let register = RegisterModel(messageType: "register", 
             sender: Sender(connectorID: settings.connectorID ?? "", connectorTag: settings.connectorTag ?? "", deviceID: settings.deviceId ?? ""), 
-            data: DataRegister(apnsToken: nil, applicationID: nil, apnsServerType: nil), systemType: settings.systemType ?? -1)
+            data: DataRegister(apnsToken: settings.apnsToken, applicationID: nil, apnsServerType: nil), systemType: settings.systemType ?? -1)
         guard let encoded = try? JSONEncoder().encode(register) else {
             self.disconnect()
             return

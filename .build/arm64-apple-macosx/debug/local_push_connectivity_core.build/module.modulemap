@@ -1,4 +1,0 @@
-module local_push_connectivity_core {
-    header "/Users/tps-user/Documents/source/local_push_connectivity/packages/local_push_connectivity_core/.build/arm64-apple-macosx/debug/local_push_connectivity_core.build/local_push_connectivity_core-Swift.h"
-    requires objc
-}

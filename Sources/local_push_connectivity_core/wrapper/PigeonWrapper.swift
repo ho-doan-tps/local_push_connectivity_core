@@ -10,11 +10,14 @@ public struct Settings: Codable, Equatable {
     var wsPath: String? = nil
     var useTcp: Bool? = nil
     var publicKey: String? = nil
+    var apnsToken: String? = nil
+    var serverApnsType: Bool? = nil
     
     public init() {}
 
     public init(ssid: [String]?, host: String?, deviceId: String?, connectorID: String?, 
-      systemType: Int?, port: Int?, wss: Bool?, wsPath: String?, useTcp: Bool?, publicKey: String?, connectorTag: String?) {
+      systemType: Int?, port: Int?, wss: Bool?, wsPath: String?, useTcp: Bool?, 
+      publicKey: String?, connectorTag: String?, apnsToken: String?, serverApnsType: Bool?) {
         self.ssid = ssid
         self.host = host
         self.deviceId = deviceId
@@ -26,5 +29,7 @@ public struct Settings: Codable, Equatable {
         self.wsPath = wsPath
         self.useTcp = useTcp
         self.publicKey = publicKey
+        self.apnsToken = apnsToken
+        self.serverApnsType = serverApnsType
     }
 }
