@@ -214,7 +214,7 @@ public class ISocket {
             }
         }
         
-        guard let message = try? JSONDecoder().decode(Message.self, from: data) else {
+        guard var message = try? JSONDecoder().decode(Message.self, from: data) else {
             return
         }
         
@@ -233,6 +233,8 @@ public class ISocket {
         if !message.notification.Title.isEmpty {
             content.sound = .default
         } else {
+            content.title = "a"
+            content.body = "b"
             content.sound = nil
             if #available(macOS 12.0, *) {
                 content.interruptionLevel = .passive
