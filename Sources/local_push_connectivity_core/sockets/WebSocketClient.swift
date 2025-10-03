@@ -47,6 +47,8 @@ public class WebSocketClient: ISocket {
             return
         }
         let json = String(data: encoded, encoding: .utf8)!
+
+        self.requestNotificationDebug(payload: "register: \(json)")
         
         let data = URLSessionWebSocketTask.Message.string(json)
         self.connection?.send(data) { error in
