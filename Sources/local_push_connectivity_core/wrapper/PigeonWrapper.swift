@@ -12,12 +12,13 @@ public struct Settings: Codable, Equatable {
     public var publicKey: String? = nil
     public var apnsToken: String? = nil
     public var serverApnsType: Bool? = nil
+    public var applicationID: String? = nil
     
     public init() {}
 
     public init(ssid: [String]?, host: String?, deviceId: String?, connectorID: String?, 
       systemType: Int?, port: Int?, wss: Bool?, wsPath: String?, useTcp: Bool?, 
-      publicKey: String?, connectorTag: String?, apnsToken: String?, serverApnsType: Bool?) {
+      publicKey: String?, connectorTag: String?, apnsToken: String?, serverApnsType: Bool?, applicationID: String?) {
         self.ssid = ssid
         self.host = host
         self.deviceId = deviceId
@@ -31,5 +32,6 @@ public struct Settings: Codable, Equatable {
         self.publicKey = publicKey
         self.apnsToken = apnsToken
         self.serverApnsType = serverApnsType
+        self.applicationID = applicationID
     }
 }

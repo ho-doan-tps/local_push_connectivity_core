@@ -41,15 +41,13 @@ public class WebSocketClient: ISocket {
         }
         let register = RegisterModel(messageType: "register", 
             sender: Sender(connectorID: settings.connectorID ?? "", connectorTag: settings.connectorTag ?? "", deviceID: settings.deviceId ?? ""), 
-            data: DataRegister(apnsToken: settings.apnsToken, applicationID: nil, apnsServerType: serverApnsType), systemType: settings.systemType ?? -1)
+            data: DataRegister(apnsToken: settings.apnsToken, applicationID: settings.applicationID, apnsServerType: serverApnsType), systemType: settings.systemType ?? -1)
         guard let encoded = try? JSONEncoder().encode(register) else {
             self.disconnect()
             return
         }
         let json = String(data: encoded, encoding: .utf8)!
 
-        self.requestNotificationDebug(payload: "register: \(json)")
-        
         let data = URLSessionWebSocketTask.Message.string(json)
         self.connection?.send(data) { error in
             if let _ = error {
